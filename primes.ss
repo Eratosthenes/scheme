@@ -44,8 +44,8 @@
 (define (is-prime2? n)
   (define (iter count)
     (cond 
-      ((= count n) #f)
-      ((fermat count n) #t)
+      ((= count n) #t)
+      ((not (fermat count n)) #f)
       (else (iter (+ count 1)))
     )
   )
