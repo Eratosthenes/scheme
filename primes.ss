@@ -27,3 +27,29 @@
   (= (lowest-divisor n) n)
 )
 
+; compute b^n mod(m)
+(define (expmod b n m)
+  (cond 
+    ((= n 0) 1)
+    ((even? n) (remainder (square (expmod b (/ n 2) m)) m))
+    (else (remainder (* b (expmod b (- n 1) m)) m))
+  )
+)
+
+; fermat's test
+(define (fermat a n)
+  (= (expmod a (- n 1) n) 1))
+
+; determine primality using fermat's test
+(define (is-prime2? n)
+  (define (iter count)
+    (cond 
+      ((= count n) #f)
+      ((fermat count n) #t)
+      (else (iter (+ count 1)))
+    )
+  )
+  (iter 2)
+)
+
+
