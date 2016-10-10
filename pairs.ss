@@ -38,10 +38,12 @@
   (z (lambda (p q) q))
 )
 
-; the real trick is understanding the substitution tho
+; the real trick is understanding the substitution tho:
 ; (car (cons x y))
 ; (car (lambda (m) (m x y))
 ; ((lambda (m) (m x y)) (lambda (p q) p))
 ; ((lambda (p q) p) x y)
 ; ((lambda (x y) x))
 
+; ps: ((lambda (x) (x x)) (lambda (x) (x x))) evaluates to itself!
+; useless but cool
