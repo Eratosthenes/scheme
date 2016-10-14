@@ -40,5 +40,13 @@
 ; accum wrapper
 (define (accum op seq) (accumulator op (car seq) seq))
     
-
+(define (fib n)
+  (define (iter a b count)
+    (if (= count n)
+      a
+      (iter (+ a b) a (+ count 1))
+    )
+  )
+  (iter 0 1 0)
+)
       
